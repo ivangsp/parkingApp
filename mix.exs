@@ -44,6 +44,7 @@ defmodule ParkingApp.Mixfile do
       {:guardian, "~> 0.14"},
       {:comeonin, "~> 4.0"},
       {:pbkdf2_elixir, "~> 0.12"}
+
     ]
   end
 
