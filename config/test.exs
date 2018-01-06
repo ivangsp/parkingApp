@@ -17,3 +17,5 @@ config :parking_app, ParkingApp.Repo,
   database: "parking_app_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :parking_app, :http_client, HTTPoison #ParkingApp.HTTPoisonMock

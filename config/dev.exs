@@ -54,3 +54,5 @@ config :parking_app, ParkingApp.Repo,
   database: "parking_app_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :parking_app, :http_client, HTTPoison

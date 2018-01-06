@@ -1,11 +1,7 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     ParkingApp.Repo.insert!(%ParkingApp.SomeModel{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will halt execution if something goes wrong.
+alias ParkingApp.{Parking, Repo}
+
+
+[%{name: "Vanemuise 3", size: 4, fare: 1.2},
+  %{name: "Raatuse 22", size: 2, fare: 0.6}]
+|> Enum.map(fn parking-> Parking.changeset(%Parking{}, parking) end)
+|> Enum.each(fn changeset -> Repo.insert!(changeset) end)

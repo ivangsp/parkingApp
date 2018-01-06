@@ -4,9 +4,7 @@ defmodule ParkingApp.Parking do
   schema "parkings" do
     field :name, :string
     field :fare, :float
-    field :lat,  :float
-    field :lng,  :float
-
+    field :size,  :integer
     timestamps()
   end
 
@@ -15,7 +13,7 @@ defmodule ParkingApp.Parking do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :fare, :lat, :lng])
-    |> validate_required([:name, :fare, :lat, :lng])
+    |> cast(params, [:name, :fare, :size])
+    |> validate_required([:name, :fare, :size])
   end
 end

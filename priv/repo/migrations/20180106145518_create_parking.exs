@@ -5,8 +5,7 @@ defmodule ParkingApp.Repo.Migrations.CreateParking do
     create table(:parkings) do
       add :name, :string
       add :fare, :float
-      add :lat,  :float
-      add :lng, :float
+      add :size, :integer
       timestamps()
     end
 

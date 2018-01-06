@@ -17,10 +17,13 @@ defmodule ParkingApp.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ParkingApp do
-  #   pipe_through :api
-  # end
+#   Other scopes may use custom stacks.
+   scope "/api", ParkingApp do
+     pipe_through :api
+
+     get "/search_parkings", BookingController, :searchParkings
+   end
 end
