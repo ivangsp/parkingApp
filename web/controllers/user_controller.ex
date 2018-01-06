@@ -1,10 +1,6 @@
-defmodule Parking_app.UserController do
-  Parking_app.web :controller
-  alias parking_app.{User}
-
-  def index(conn, _param) do
-    render(conn, "index.json")
-  end
+defmodule ParkingApp.UserController do
+  use ParkingApp.Web, :controller
+  alias ParkingApp.{User}
 
   def create(conn, params) do
     changeset =  User.changeset(%User{}, params)
