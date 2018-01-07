@@ -1,5 +1,25 @@
 <template>
     <div class="container">
+
+        <table v-if="response != null" class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Street Address</th>
+                <th>Price per Hour</th>
+                <th>Free Lots</th>
+                <th>Distance</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="item in response">
+                <td>{{item.name}}</td>
+                <td>{{item.cost}}</td>
+                <td>{{item.spaces}}</td>
+                <td>{{item.distance}}</td>
+            </tr>
+            </tbody>
+        </table>
+
         <form>
             <div class="form-group">
                 <label for="destination">Refrence Address:</label>
@@ -21,14 +41,16 @@
     export default {
         data(){
             return{
-                destination: null
+                destination: null,
+                response: null
             }
         },
         methods:{
             submitSearch(){
-                axios.get("api/search_parkings", {destination: this.destination})
+                axios.post("api/search_parkings", {destination: this.destination})
                     .then(response =>{
-                        console.log("response.data");
+                        this.response = response.data.parkings;
+
                     })
                     .catch(error =>{
                         console.log("An error occured", error);

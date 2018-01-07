@@ -24,6 +24,6 @@ defmodule ParkingApp.Router do
    scope "/api", ParkingApp do
      pipe_through :api
 
-     get "/search_parkings", BookingController, :searchParkings
+     post "/search_parkings", BookingController, :searchParkings
    end
 end
